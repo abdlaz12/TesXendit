@@ -9,9 +9,8 @@ export default function PaymentPage() {
 
   // Hitung total dari keranjang belanja
   const subtotal = cartItems.reduce((acc, item) => acc + item.qty * item.price, 0);
-  const tax = subtotal * 0.11; // Contoh pajak 11%
   const shipping = 10000; // Contoh ongkos kirim
-  const total = subtotal + tax + shipping;
+  const total = subtotal + shipping;
 
   // Fungsi yang akan dijalankan saat tombol "Confirm & Pay" diklik
   const handlePayment = async () => {
@@ -65,10 +64,6 @@ export default function PaymentPage() {
           <div className="flex justify-between">
             <p>Item(s) Subtotal</p>
             <p>Rp{subtotal.toLocaleString('id-ID')}</p>
-          </div>
-          <div className="flex justify-between">
-            <p>Tax (11%)</p>
-            <p>Rp{tax.toLocaleString('id-ID')}</p>
           </div>
           <div className="flex justify-between">
             <p>Shipping</p>

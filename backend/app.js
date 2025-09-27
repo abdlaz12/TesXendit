@@ -10,6 +10,8 @@ dotenv.config();
 // 2. Import rute setelah semua setup awal
 const productRoutes = require('./routes/productRoutes');
 const webhookRoutes = require('./routes/webhookRoutes'); //
+const paymentRoutes = require('./routes/paymentRoutes');
+
 
 // 3. Inisialisasi aplikasi Express (INI YANG HILANG/SALAH URUTAN)
 const app = express();
@@ -21,6 +23,7 @@ app.use(express.json());
 // 5. Hubungkan Rute ke Aplikasi
 app.use('/api/products', productRoutes);
 app.use('/api/webhooks', webhookRoutes); // <-- Tambahkan ini
+app.use('/api/payments', paymentRoutes);
 
 // 6. Hubungkan ke Database
 mongoose.connect(process.env.MONGO_URI)

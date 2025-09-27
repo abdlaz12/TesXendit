@@ -22,7 +22,13 @@ export function CartProvider({ children }) {
     });
   };
 
-  const value = { cartItems, addToCart };
+  // <-- TAMBAHKAN FUNGSI INI
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  // <-- TAMBAHKAN clearCart KE DALAM VALUE
+  const value = { cartItems, addToCart, clearCart };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
